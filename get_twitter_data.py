@@ -23,7 +23,7 @@ auth = tweepy.OAuthHandler(Consumer_key, Consumer_secret)
 auth.set_access_token(Access_token, Access_secret)
 
 api = tweepy.API(auth, wait_on_rate_limit = True)
-keyword='kubernetes'
+keyword='Wordcloud'
 #検索キーワード設定 
 q = keyword
 
@@ -31,7 +31,7 @@ q = keyword
 tweets_data =[]
 
 #カーソルを使用してデータ取得
-for tweet in tweepy.Cursor(api.search, q=q,tweet_mode='extended',lang='ja').items(10):
+for tweet in tweepy.Cursor(api.search, q=q,tweet_mode='extended',lang='ja').items(50):
 
     #つぶやき時間がUTCのため、JSTに変換  ※デバッグ用のコード
     #jsttime = tweet.created_at + datetime.timedelta(hours=9)
